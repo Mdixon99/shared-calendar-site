@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opt-In Disclosure — Matt & Ally Shared Calendar</title>
+    <title>SMS Opt-In — Matt & Ally Shared Calendar</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 40px 20px; }
@@ -15,43 +15,88 @@
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .back { margin-top: 32px; }
+        .consent-form { background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .consent-form label { display: block; margin-bottom: 12px; font-weight: 500; }
+        .consent-form input[type="tel"] { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; margin-top: 4px; }
+        .consent-form .checkbox-group { display: flex; align-items: flex-start; gap: 8px; margin: 16px 0; }
+        .consent-form .checkbox-group input { margin-top: 4px; }
+        .consent-form button { background: #0066cc; color: #fff; border: none; padding: 12px 24px; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 8px; }
+        .consent-form button:hover { background: #0052a3; }
+        .disclosure { background: #fff8e1; border: 1px solid #ffe082; border-radius: 6px; padding: 16px; margin: 16px 0; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <h1>Opt-In Disclosure</h1>
-    <p class="updated">Last updated: April 17, 2026</p>
+    <h1>SMS Opt-In</h1>
+    <p class="subtitle">Matt & Ally Shared Calendar</p>
+    <p class="updated">Last updated: April 22, 2026</p>
 
-    <h2>How Users Opt In</h2>
-    <p>Both authorized users provide <strong>verbal consent</strong> to the account owner (Matthew Dixon) before their phone numbers are added to the system. There is no online sign-up form, no web-based opt-in, and no automated enrollment process.</p>
+    <h2>About This Service</h2>
+    <p>Matt & Ally Shared Calendar is a personal SMS-based calendar for two users. You text event details to our number and they are automatically added to a shared Google Calendar. You can also query, update, and cancel events via SMS.</p>
 
-    <h2>Who Can Use This Service</h2>
-    <p>This Service is restricted to exactly two people — Matt Dixon and his partner Ally. Phone numbers are manually configured in the server by the account owner. No one else can send messages to or receive messages from this number.</p>
+    <h2>Consent to Receive SMS</h2>
+    <p>By submitting the form below, you consent to receive SMS messages from Matt & Ally Shared Calendar. Messages include event confirmations, schedule summaries, and notifications when the other user modifies a shared event.</p>
 
-    <h2>What Users Consent To</h2>
-    <ul>
-        <li>Receiving SMS confirmations when calendar events are created, updated, or cancelled.</li>
-        <li>Receiving SMS notifications when the other user modifies a shared event.</li>
-        <li>Receiving SMS schedule summaries in response to queries.</li>
-    </ul>
+    <div class="consent-form">
+        <form id="opt-in-form" onsubmit="document.getElementById('confirmation').style.display='block'; return false;">
+            <label>
+                Your Phone Number
+                <input type="tel" placeholder="+1 (415) 000-0000" required>
+            </label>
 
-    <h2>Message Frequency</h2>
-    <p>Message frequency depends on usage. Typical volume is fewer than 50 messages per month across both users combined.</p>
+            <label>
+                Your Name
+                <input type="text" placeholder="First name" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:4px; font-size:1rem; margin-top:4px;">
+            </label>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="consent" required>
+                <label for="consent" style="font-weight: normal; margin-bottom: 0;">
+                    I agree to receive SMS messages from Matt & Ally Shared Calendar. I understand that message and data rates may apply, message frequency varies by usage (typically fewer than 50 messages/month), and I can reply <strong>STOP</strong> at any time to opt out.
+                </label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms" style="font-weight: normal; margin-bottom: 0;">
+                    I have read and agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.
+                </label>
+            </div>
+
+            <button type="submit">Subscribe to SMS</button>
+        </form>
+
+        <div id="confirmation" style="display:none; margin-top:16px; padding:12px; background:#e8f5e9; border-radius:4px; color:#2e7d32;">
+            Thank you! Your request has been received. The account owner will add your number to the calendar service.
+        </div>
+    </div>
+
+    <div class="disclosure">
+        <strong>SMS Disclosure:</strong> By opting in, you will receive SMS messages from Matt & Ally Shared Calendar related to calendar event creation, updates, cancellations, and schedule queries. Message frequency varies based on usage (typically &lt;50 messages/month). Message and data rates may apply. Reply <strong>STOP</strong> to unsubscribe. Reply <strong>HELP</strong> for assistance. View our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms &amp; Conditions</a>.
+    </div>
+
+    <h2>How It Works</h2>
+    <ol style="padding-left: 24px;">
+        <li>Submit the opt-in form above with your phone number.</li>
+        <li>The account owner (Matthew Dixon) adds your number to the calendar service.</li>
+        <li>You receive a welcome SMS confirming your enrollment.</li>
+        <li>Text event details to the calendar number to create, view, update, or cancel events.</li>
+    </ol>
 
     <h2>How to Opt Out</h2>
     <ul>
-        <li>Reply <strong>STOP</strong> to the Service phone number at any time to stop receiving messages.</li>
+        <li>Reply <strong>STOP</strong> to the service phone number at any time to immediately stop receiving messages.</li>
         <li>Contact the account owner at <a href="mailto:matt.ally.calendar@gmail.com">matt.ally.calendar@gmail.com</a> to have your number removed.</li>
-        <li>Opting out is immediate and permanent unless you request to be re-added.</li>
     </ul>
 
-    <h2>No Public Enrollment</h2>
-    <p>There is no mechanism for the public to sign up for this Service. Only the account owner can add or remove phone numbers. This is a personal tool, not a commercial messaging service.</p>
-
-    <h2>Message & Data Rates</h2>
-    <p>Standard message and data rates from your mobile carrier may apply.</p>
+    <h2>Message Types</h2>
+    <ul>
+        <li>Event confirmation — sent when you create, update, or cancel a calendar event.</li>
+        <li>Schedule summary — sent when you ask about upcoming events.</li>
+        <li>Partner notification — sent when the other user modifies a shared event.</li>
+    </ul>
 
     <h2>Contact</h2>
-    <p>For questions about opting in or out, contact Matthew Dixon at <a href="mailto:matt.ally.calendar@gmail.com">matt.ally.calendar@gmail.com</a>.</p>
+    <p>For questions, contact Matthew Dixon at <a href="mailto:matt.ally.calendar@gmail.com">matt.ally.calendar@gmail.com</a>.</p>
 
     <p class="back"><a href="index.html">&larr; Back to home</a></p>
 </body>
